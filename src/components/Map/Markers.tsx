@@ -20,7 +20,9 @@ export const Map = () => {
 
   useEffect(() => {
     if (selectedCity)
-      map.flyTo([selectedCity.latitude, selectedCity.longitude], 10);
+      map.flyTo([selectedCity.latitude, selectedCity.longitude], 10, {
+        duration: 2
+      });
   }, [selectedCity, map]);
 
   useMapEvents({

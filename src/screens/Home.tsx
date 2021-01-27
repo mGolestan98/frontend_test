@@ -6,7 +6,7 @@ import media from "../config/styles/mediaQueries";
 import { Column, Row } from "../ui/Layout.styled";
 
 const HomeWrapper = styled(Row)`
-  border: 1px solid #000;
+  border: 1px solid #cacaca;
 
   ${media.desktop} {
     margin-top: 50px;
