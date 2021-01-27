@@ -3,7 +3,12 @@ import Item from "../Item";
 import CitiesList from "../List";
 import { mount } from "enzyme";
 import { ICity } from "../../../types";
-import { CityContext } from "../../../contexts/CityContext";
+import { CityContext, ICityContext } from "../../../contexts/CityContext";
+
+interface IProviderPropsType {
+  children: React.ReactElement;
+  value: ICityContext;
+}
 
 describe("CitiesList", () => {
   const onCityClick = jest.fn();
@@ -27,19 +32,31 @@ describe("CitiesList", () => {
       state: "California"
     }
   ];
+  const Provider = ({ children, value }: IProviderPropsType) => (
+    <CityContext.Provider value={value}>{children}</CityContext.Provider>
+  );
 
   describe("Actions", () => {
     it("selects a city from the list", () => {
-      const myComponent = mount(
-        <CityContext.Provider
-          value={{ cities, selectedCity: null, setSelectedCity: onCityClick }}
-        >
-          <CitiesList />
-        </CityContext.Provider>
-      );
+      const myComponent = mount(<CitiesList />, {
+        wrappingComponent: Provider,
+        wrappingComponentProps: {
+          value: { cities, selectedCity: null, setSelectedCity: onCityClick }
+        }
+      });
 
-      myComponent.find(Item).at(0).simulate("click");
+      myComponent.find(Item).at(1).simulate("click");
       expect(onCityClick).toHaveBeenCalledTimes(1);
+
+      const provider = myComponent.getWrappingComponent();
+      provider.setProps({
+        value: { cities, selectedCity: cities[1], setSelectedCity: onCityClick }
+      });
+
+      expect(myComponent.find(Item).at(0).childAt(0).prop("active")).toBe(
+        false
+      );
+      expect(myComponent.find(Item).at(1).childAt(0).prop("active")).toBe(true);
     });
   });
 });

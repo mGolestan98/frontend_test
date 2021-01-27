@@ -6,7 +6,7 @@ interface ICityProviderType {
   children: React.ReactElement;
 }
 
-interface ICityContext {
+export interface ICityContext {
   cities: Array<ICity>;
   selectedCity: ICity | null;
   setSelectedCity: Dispatch<SetStateAction<ICity | null>>;
