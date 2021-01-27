@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`City Snaphosts renders 1`] = `
+<li
+  className="sc-AxmLO eiBklh"
+  onClick={[Function]}
+>
+  <div
+    className="sc-AxiKw fcKdQA"
+  >
+    <h2
+      className="sc-AxhUy fqQslw"
+    >
+      New York
+    </h2>
+    <p
+      className="sc-AxgMl cRwCzO"
+    >
+      Rank: 
+      1
+    </p>
+  </div>
+  <div
+    className="sc-AxiKw fBDesa"
+  >
+    <p
+      className="sc-AxgMl gpsubg"
+    >
+      Population: 
+      8,405,837
+    </p>
+    <div
+      className="sc-fzozJi wjHre"
+    >
+      <p
+        className="sc-AxgMl gpsubg"
+      >
+        Growth: 
+        4.8%
+      </p>
+      <span
+        className="sc-AxheI ggBHGz"
+      />
+    </div>
+  </div>
+</li>
+`;

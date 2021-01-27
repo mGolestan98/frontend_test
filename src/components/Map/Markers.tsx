@@ -4,16 +4,20 @@ import { useCityContext } from "../../contexts/CityContext";
 
 export const Map = () => {
   const map = useMap();
-  const { cities } = useCityContext();
+  const { cities, selectedCity, setSelectedCity } = useCityContext();
 
-  const defaultPosisionSet = useRef(false);
-
+  const defaultPositionSet = useRef(false);
   useEffect(() => {
-    if (cities.length && !defaultPosisionSet.current)
+    if (cities.length && !defaultPositionSet.current)
       map.flyTo([cities[0].latitude, cities[0].longitude], 10, {
         animate: false
       });
   }, [cities]);
+
+  useEffect(() => {
+    if (selectedCity)
+      map.flyTo([selectedCity.latitude, selectedCity.longitude], 10);
+  }, [selectedCity]);
 
   return (
     <>
@@ -23,9 +27,7 @@ export const Map = () => {
               key={city.rank}
               position={[city.latitude, city.longitude]}
               eventHandlers={{
-                click: (p) => {
-                  console.log(p);
-                }
+                click: () => setSelectedCity(city)
               }}
             />
           ))

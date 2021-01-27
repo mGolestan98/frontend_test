@@ -18,7 +18,7 @@ const initialContext: ICityContext = {
   setSelectedCity: () => {}
 };
 
-const CityContext = React.createContext(initialContext);
+export const CityContext = React.createContext(initialContext);
 
 export const useCityContext = () => React.useContext(CityContext);
 

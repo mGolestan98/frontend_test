@@ -6,6 +6,7 @@ import { Row } from "../../ui/Layout.styled";
 import Heading from "../../ui/Heading.styled";
 import Paragraph from "../../ui/Paragraph.styled";
 import { ArrowUp, ArrowDown } from "../../ui/Arrow.styled";
+import { useCityContext } from "../../contexts/CityContext";
 
 type StyledItemPropsType = {
   active?: boolean;
@@ -13,7 +14,8 @@ type StyledItemPropsType = {
 const StyledItem = styled.li<StyledItemPropsType>`
   cursor: pointer;
   background-color: ${(props) =>
-    props.active ? colors.greyBorder : colors.white};
+    props.active ? colors.purpleHover : colors.white};
+  color: ${(props) => (props.active ? colors.white : "#000")};
   padding: 0.4em;
 
   margin: 10px;
@@ -23,7 +25,8 @@ const StyledItem = styled.li<StyledItemPropsType>`
 
   transition: background 0.3s ease;
   :hover {
-    background-color: ${colors.greyBorder};
+    background-color: ${colors.purpleHover};
+    color: ${colors.white};
   }
 `;
 
@@ -34,27 +37,34 @@ const GrowthWrapper = styled.div`
 
 type PropsType = { city: ICity };
 
-const Item = ({ city }: PropsType) => (
-  <StyledItem>
-    <Row withMargin middleAlign>
-      <Heading component={"h4"}>{city.city}</Heading>
-      <Paragraph small>Rank: {city.rank}</Paragraph>
-    </Row>
-    <Row>
-      <Paragraph>
-        Population: {city.population.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-      </Paragraph>
+const Item = ({ city }: PropsType) => {
+  const { selectedCity, setSelectedCity } = useCityContext();
 
-      <GrowthWrapper>
-        <Paragraph>Growth: {city.growth_from_2000_to_2013}</Paragraph>
-        {parseFloat(city.growth_from_2000_to_2013) > 0 ? (
-          <ArrowUp />
-        ) : (
-          <ArrowDown />
-        )}
-      </GrowthWrapper>
-    </Row>
-  </StyledItem>
-);
+  return (
+    <StyledItem
+      active={city.city === selectedCity?.city}
+      onClick={() => setSelectedCity(city)}
+    >
+      <Row withMargin middleAlign>
+        <Heading component={"h4"}>{city.city}</Heading>
+        <Paragraph small>Rank: {city.rank}</Paragraph>
+      </Row>
+      <Row>
+        <Paragraph>
+          Population: {city.population.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </Paragraph>
+
+        <GrowthWrapper>
+          <Paragraph>Growth: {city.growth_from_2000_to_2013}</Paragraph>
+          {parseFloat(city.growth_from_2000_to_2013) > 0 ? (
+            <ArrowUp />
+          ) : (
+            <ArrowDown />
+          )}
+        </GrowthWrapper>
+      </Row>
+    </StyledItem>
+  );
+};
 
 export default Item;

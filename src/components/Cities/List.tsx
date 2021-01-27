@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useCityContext } from "../../contexts/CityContext";
 import useDebounce from "../../hooks/useDebounce";
@@ -34,7 +34,7 @@ const CitiesList = () => {
     setCitiesListItems([]);
   }, [debouncedSearchValue]);
 
-  const loadNextCities = React.useCallback(
+  const loadNextCities = useCallback(
     (start = 0, limit = 50) => {
       if (!cities[start]) return;
 
@@ -73,7 +73,7 @@ const CitiesList = () => {
         />
         <StyledUl>
           {citiesListItems.map((city) => (
-            <Item city={city} />
+            <Item key={city.rank} city={city} />
           ))}
         </StyledUl>
 
