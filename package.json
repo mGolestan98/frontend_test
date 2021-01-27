@@ -25,7 +25,8 @@
     "type-check:watch": "tsc --noEmit --watch"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "react-hooks/exhaustive-deps": 0
   },
   "browserslist": {
     "production": [

@@ -7,6 +7,7 @@ import Heading from "../../ui/Heading.styled";
 import Paragraph from "../../ui/Paragraph.styled";
 import { ArrowUp, ArrowDown } from "../../ui/Arrow.styled";
 import { useCityContext } from "../../contexts/CityContext";
+import useThousandSeperator from "../../hooks/useThousandSeperator";
 
 type StyledItemPropsType = {
   active?: boolean;
@@ -39,6 +40,7 @@ type PropsType = { city: ICity };
 
 const Item = ({ city }: PropsType) => {
   const { selectedCity, setSelectedCity } = useCityContext();
+  const population = useThousandSeperator(city.population);
 
   return (
     <StyledItem
@@ -50,9 +52,7 @@ const Item = ({ city }: PropsType) => {
         <Paragraph small>Rank: {city.rank}</Paragraph>
       </Row>
       <Row>
-        <Paragraph>
-          Population: {city.population.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-        </Paragraph>
+        <Paragraph>Population: {population}</Paragraph>
 
         <GrowthWrapper>
           <Paragraph>Growth: {city.growth_from_2000_to_2013}</Paragraph>

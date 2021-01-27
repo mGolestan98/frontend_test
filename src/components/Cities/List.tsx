@@ -54,7 +54,7 @@ const CitiesList = () => {
 
       setCitiesListItems(newCities);
     },
-    [cities, citiesListItems, setCitiesListItems]
+    [cities, citiesListItems, setCitiesListItems, search]
   );
 
   useEffect(() => {
