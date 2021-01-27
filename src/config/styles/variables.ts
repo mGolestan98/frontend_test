@@ -28,8 +28,8 @@ const variables = {
       minHeight: "calc(100vh - 100px)"
     },
     row: {
-      marginTop: spacing.mediumLarge,
-      marginBottom: spacing.mediumLarge,
+      marginTop: spacing.small,
+      marginBottom: spacing.small,
       maxWidth: "1200px",
       borderTop: `1px solid ${colors.greyBorder}`,
       borderBottom: `1px solid ${colors.greyBorder}`

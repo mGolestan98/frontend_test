@@ -20,7 +20,7 @@ export const MapContainer = () => {
     <RLMapContainer
       center={[0, 0]}
       zoom={10}
-      style={{ height: 700, width: "100%" }}
+      style={{ height: 500, width: "100%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

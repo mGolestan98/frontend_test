@@ -37,8 +37,11 @@ type SectionPropsType = {
 
 export const Section = styled.section<SectionPropsType>`
   width: 100%;
-  max-height: 700px;
-  overflow: auto;
+  border: ${layout.column.border};
+
+  ${media.desktop} {
+    max-width: ${layout.row.maxWidth};
+  }
 `;
 
 export const Column = styled.div<ColumnPropsType>`

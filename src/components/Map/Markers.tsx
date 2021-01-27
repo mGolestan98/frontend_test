@@ -17,7 +17,7 @@ export const Map = () => {
 
   return (
     <>
-      {cities
+      {cities.length
         ? cities.map((city) => (
             <Marker
               key={city.rank}

@@ -1,15 +1,20 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import CitiesList from "../components/Cities/List";
 import Map from "../components/Map";
 import { CityProvider } from "../contexts/CityContext";
 import { Column, Row } from "../ui/Layout.styled";
 
+const StyledAppSection = styled(Row)`
+  border: 1px solid #000;
+  margin-top: 50px;
+`;
+
 const Home = () => {
   return (
     <CityProvider>
       <ThemeProvider theme={{}}>
-        <Row>
+        <StyledAppSection>
           <Column
             columnCountDesktop={4}
             columnCountTablet={12}
@@ -24,7 +29,7 @@ const Home = () => {
           >
             <Map />
           </Column>
-        </Row>
+        </StyledAppSection>
       </ThemeProvider>
     </CityProvider>
   );
