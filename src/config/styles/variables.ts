@@ -4,6 +4,10 @@ import spacing from "./spacing";
 const borderRadius = "8px";
 
 const variables = {
+  button: {
+    backgroundColor: colors.purple,
+    color: colors.white
+  },
   layout: {
     column: {
       border: `1px solid ${colors.greyBorder}`,
