@@ -2,16 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import CitiesList from "../components/Cities/List";
 import Map from "../components/Map";
+import media from "../config/styles/mediaQueries";
 import { Column, Row } from "../ui/Layout.styled";
 
-const StyledAppSection = styled(Row)`
+const HomeWrapper = styled(Row)`
   border: 1px solid #000;
-  margin-top: 50px;
+
+  ${media.desktop} {
+    margin-top: 50px;
+  }
 `;
 
 const Home = () => {
   return (
-    <StyledAppSection>
+    <HomeWrapper>
       <Column
         columnCountDesktop={4}
         columnCountTablet={12}
@@ -26,7 +30,7 @@ const Home = () => {
       >
         <Map />
       </Column>
-    </StyledAppSection>
+    </HomeWrapper>
   );
 };
 

@@ -5,6 +5,8 @@ import useDebounce from "../../hooks/useDebounce";
 import { ICity } from "../../types";
 import Button from "../../ui/Button.styled";
 import Input from "../../ui/Input.styled";
+import { Row } from "../../ui/Layout.styled";
+import Paragraph from "../../ui/Paragraph.styled";
 import Item from "./Item";
 
 const ListWrapper = styled.div`
@@ -19,6 +21,7 @@ const ListWrapper = styled.div`
 const StyledUl = styled.div`
   margin: 0;
   padding: 0;
+  width: 100%;
   overflow: hidden;
   overflow-y: scroll;
   list-style: none;
@@ -28,10 +31,12 @@ const CitiesList = () => {
   const { cities } = useCityContext();
   const [citiesListItems, setCitiesListItems] = useState<Array<ICity>>([]);
   const [search, setSearch] = useState("");
+  const [noMoreResults, setNoMoreResults] = useState(false);
 
   const debouncedSearchValue = useDebounce(search, 1000);
   useEffect(() => {
     setCitiesListItems([]);
+    setNoMoreResults(false);
   }, [debouncedSearchValue]);
 
   const loadNextCities = useCallback(
@@ -53,15 +58,19 @@ const CitiesList = () => {
       }
 
       setCitiesListItems(newCities);
+
+      setNoMoreResults(
+        !newCities.length || !filteredCities[newCities.length + 1]
+      );
     },
     [cities, citiesListItems, setCitiesListItems, search]
   );
 
   useEffect(() => {
-    if (!citiesListItems.length) {
+    if (!citiesListItems.length && !noMoreResults) {
       loadNextCities();
     }
-  }, [citiesListItems, loadNextCities]);
+  }, [citiesListItems, loadNextCities, noMoreResults]);
 
   return (
     <>
@@ -71,15 +80,26 @@ const CitiesList = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <StyledUl>
-          {citiesListItems.map((city) => (
-            <Item key={city.rank} city={city} />
-          ))}
-        </StyledUl>
 
-        <Button onClick={() => loadNextCities(citiesListItems.length)}>
-          Load more
-        </Button>
+        <Row withMargin>
+          <StyledUl>
+            {citiesListItems.map((city) => (
+              <Item key={city.rank} city={city} />
+            ))}
+          </StyledUl>
+        </Row>
+
+        {!citiesListItems.length && search ? (
+          <Row center withMargin>
+            <Paragraph>No results based on your search</Paragraph>
+          </Row>
+        ) : null}
+
+        {!noMoreResults ? (
+          <Button onClick={() => loadNextCities(citiesListItems.length)}>
+            Load more
+          </Button>
+        ) : null}
       </ListWrapper>
     </>
   );
