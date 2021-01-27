@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useCityContext } from "../../contexts/CityContext";
+import Input from "../../ui/Input.styled";
 import Item from "./Item";
 
 const StyledList = styled.ul`
@@ -16,11 +17,14 @@ const CitiesList = () => {
   const { cities } = useCityContext();
 
   return (
-    <StyledList>
-      {cities.map((city) => (
-        <Item city={city} />
-      ))}
-    </StyledList>
+    <>
+      <Input placeholder="Search city by name..." />
+      <StyledList>
+        {cities.map((city) => (
+          <Item city={city} />
+        ))}
+      </StyledList>
+    </>
   );
 };
 

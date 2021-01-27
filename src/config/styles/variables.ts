@@ -40,6 +40,22 @@ const variables = {
         tablet: `${spacing.extraLarge} 0`
       }
     }
+  },
+  formElements: {
+    inputStyles: {
+      padding: `${spacing.small} ${spacing.xSmall}`,
+      default: {
+        backgroundColor: colors.transparent,
+        borderBottomColor: colors.greyBorder
+      },
+      disabled: {
+        background: colors.greyDisabled
+      },
+      focus: {
+        backgroundColor: colors.white,
+        borderBottomColor: colors.purple
+      }
+    }
   }
 };
 
