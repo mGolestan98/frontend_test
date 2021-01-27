@@ -1,8 +1,9 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import Home from "./screens/Home";
 import { CityProvider } from "./contexts/CityContext";
 
-const Home = () => {
+const App = () => {
   return (
     <CityProvider>
       <ThemeProvider theme={{}}>
@@ -12,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;

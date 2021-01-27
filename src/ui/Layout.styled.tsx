@@ -21,34 +21,12 @@ type ColumnPropsType = {
   columnCountDesktop: number;
   columnCountTablet: number;
   columnCountPhone: number;
-  border?: boolean;
-  noBorderTop?: boolean;
-  noBorderBottom?: boolean;
-  borderRadiusTop?: boolean;
-  borderRadiusBottom?: boolean;
-  verticalPadding?: boolean;
-  noMarginBottom?: boolean;
-  hideInPhone?: boolean;
 };
-
-type SectionPropsType = {
-  withMargin?: boolean;
-};
-
-export const Section = styled.section<SectionPropsType>`
-  width: 100%;
-  border: ${layout.column.border};
-
-  ${media.desktop} {
-    max-width: ${layout.row.maxWidth};
-  }
-`;
 
 export const Column = styled.div<ColumnPropsType>`
-  display: ${(props) => (props.hideInPhone ? "none" : "flex")};
+  display: flex;
   flex-direction: column;
   width: ${(props) => `calc(100% * ${props.columnCountPhone} / 4)`};
-  margin-bottom: ${(props) => (props.noMarginBottom ? "0" : "40px")};
 
   &:first-child {
     padding-left: 0;
@@ -104,58 +82,9 @@ export const Column = styled.div<ColumnPropsType>`
       margin-right: 0;
       margin-bottom: 0;
     }
-
-    ${(props) =>
-      props.border &&
-      css`
-        border: ${layout.column.border};
-      `}
-    ${(props) =>
-      props.noBorderTop &&
-      props.border &&
-      css`
-        border-top: 0;
-      `}
-    ${(props) =>
-      props.noBorderBottom &&
-      props.border &&
-      css`
-        border-bottom: 0;
-      `}
-    ${(props) =>
-      props.borderRadiusTop &&
-      css`
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-      `}
-    ${(props) =>
-      props.borderRadiusBottom &&
-      css`
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      `}
-    ${(props) =>
-      props.verticalPadding &&
-      css`
-        padding: ${layout.column.containerPadding};
-
-        &:first-child {
-          padding-left: ${layout.column.containerPadding};
-        }
-
-        &:last-child {
-          padding-right: ${layout.column.containerPadding};
-        }
-      `}
   }
   ${media.desktop} {
     width: ${(props) => `calc(100% * ${props.columnCountDesktop} / 12)`};
-
-    ${(props) =>
-      props.verticalPadding &&
-      css`
-        padding: ${layout.column.containerPadding};
-      `}
   } ;
 `;
 

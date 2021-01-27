@@ -2,44 +2,44 @@
 
 exports[`City Snaphosts renders 1`] = `
 <li
-  className="sc-AxmLO eiBklh"
+  className="sc-Axmtr jSpriw"
   onClick={[Function]}
 >
   <div
-    className="sc-AxiKw fcKdQA"
+    className="sc-AxirZ cVwUnI"
   >
     <h2
-      className="sc-AxhUy fqQslw"
+      className="sc-AxhCb cOqwkx"
     >
       New York
     </h2>
     <p
-      className="sc-AxgMl cRwCzO"
+      className="sc-AxhUy hdigZc"
     >
       Rank: 
       1
     </p>
   </div>
   <div
-    className="sc-AxiKw fBDesa"
+    className="sc-AxirZ deKsjO"
   >
     <p
-      className="sc-AxgMl gpsubg"
+      className="sc-AxhUy jeEzEq"
     >
       Population: 
       8,405,837
     </p>
     <div
-      className="sc-fzozJi wjHre"
+      className="sc-AxmLO fRRgPH"
     >
       <p
-        className="sc-AxgMl gpsubg"
+        className="sc-AxhUy jeEzEq"
       >
         Growth: 
         4.8%
       </p>
       <span
-        className="sc-AxheI ggBHGz"
+        className="sc-AxgMl kUaHlF"
       />
     </div>
   </div>
