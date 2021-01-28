@@ -20,6 +20,7 @@ const Home = () => {
         columnCountDesktop={4}
         columnCountTablet={12}
         columnCountPhone={12}
+        hideInPhone
       >
         <CitiesList />
       </Column>

@@ -4,6 +4,8 @@ import Markers from "./Markers";
 
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { HideIn } from "../../ui/Common.styled";
+import MobilePopup from "./MobilePopup";
 
 // a fix based on this issue https://github.com/PaulLeCam/react-leaflet/issues/453#issuecomment-410450387
 // @ts-ignore Property '_getIconUrl' does not exist on type 'Default'.
@@ -17,17 +19,23 @@ L.Icon.Default.mergeOptions({
 
 export const MapContainer = () => {
   return (
-    <RLMapContainer
-      center={[0, 0]}
-      zoom={10}
-      style={{ height: 555, width: "100%" }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Markers />
-    </RLMapContainer>
+    <>
+      <RLMapContainer
+        center={[0, 0]}
+        zoom={10}
+        style={{ height: 555, width: "100%" }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Markers />
+      </RLMapContainer>
+
+      <HideIn tablet desktop>
+        <MobilePopup />
+      </HideIn>
+    </>
   );
 };
 

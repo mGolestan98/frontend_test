@@ -21,10 +21,11 @@ type ColumnPropsType = {
   columnCountDesktop: number;
   columnCountTablet: number;
   columnCountPhone: number;
+  hideInPhone?: boolean;
 };
 
 export const Column = styled.div<ColumnPropsType>`
-  display: flex;
+  display: ${(props) => (props.hideInPhone ? "none" : "flex")};
   flex-direction: column;
   width: ${(props) => `calc(100% * ${props.columnCountPhone} / 4)`};
 
