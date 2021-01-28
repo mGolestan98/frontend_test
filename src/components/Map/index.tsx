@@ -5,6 +5,7 @@ import Markers from "./Markers";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { HideIn } from "../../ui/Common.styled";
+import Popup from "./Popup";
 import MobilePopup from "./MobilePopup";
 
 // a fix based on this issue https://github.com/PaulLeCam/react-leaflet/issues/453#issuecomment-410450387
@@ -29,6 +30,7 @@ export const MapContainer = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+        <Popup />
         <Markers />
       </RLMapContainer>
 
