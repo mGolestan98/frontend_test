@@ -1,9 +1,9 @@
 import React from "react";
-import Item from "../Item";
-import CitiesList from "../List";
 import { mount } from "enzyme";
-import { ICity } from "../../../types";
 import { CityContext, ICityContext } from "../../../contexts/CityContext";
+import { ICity } from "../../../types";
+import CitiesList from "../List";
+import Item from "../Item";
 
 interface IProviderPropsType {
   children: React.ReactElement;

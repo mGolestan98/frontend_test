@@ -1,45 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`City Snaphosts renders 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font-size: 1rem;
+  -webkit-letter-spacing: -0.2px;
+  -moz-letter-spacing: -0.2px;
+  -ms-letter-spacing: -0.2px;
+  letter-spacing: -0.2px;
+  line-height: 1.375rem;
+}
+
+.c3 {
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.c5 {
+  font-family: inherit;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.c7 {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid green;
+}
+
+.c0 {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+  padding: 0.4em;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+  -webkit-transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+  transition: all 0.3s cubic-bezier(0.25,0.8,0.25,1);
+  list-style: none;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.c0:hover {
+  background-color: #9139ff;
+  color: #fff;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    max-width: 1200px;
+  }
+}
+
+@media print {
+  .c1 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c4 {
+    max-width: 1200px;
+  }
+}
+
 <li
-  className="sc-Axmtr jSpriw"
+  className="c0"
   onClick={[Function]}
 >
   <div
-    className="sc-AxirZ cVwUnI"
+    className="c1"
   >
     <h2
-      className="sc-AxhCb cOqwkx"
+      className="c2"
     >
       New York
     </h2>
     <p
-      className="sc-AxhUy hdigZc"
+      className="c3"
     >
       Rank: 
       1
     </p>
   </div>
   <div
-    className="sc-AxirZ deKsjO"
+    className="c4"
   >
     <p
-      className="sc-AxhUy jeEzEq"
+      className="c5"
     >
       Population: 
-      8,405,837
+      8405837
     </p>
     <div
-      className="sc-AxmLO fRRgPH"
+      className="c6"
     >
       <p
-        className="sc-AxhUy jeEzEq"
+        className="c5"
       >
         Growth: 
         4.8%
       </p>
       <span
-        className="sc-AxgMl kUaHlF"
+        className="c7"
       />
     </div>
   </div>

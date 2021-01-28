@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer as RLMapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import Markers from "./Markers";
 
 import "leaflet/dist/leaflet.css";
@@ -18,10 +18,10 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png")
 });
 
-export const MapContainer = () => {
+export const Map = () => {
   return (
     <>
-      <RLMapContainer
+      <MapContainer
         center={[0, 0]}
         zoom={10}
         style={{ height: 555, width: "100%" }}
@@ -32,7 +32,7 @@ export const MapContainer = () => {
         />
         <Popup />
         <Markers />
-      </RLMapContainer>
+      </MapContainer>
 
       <HideIn tablet desktop>
         <MobilePopup />
@@ -41,4 +41,4 @@ export const MapContainer = () => {
   );
 };
 
-export default MapContainer;
+export default Map;
