@@ -13,7 +13,7 @@ export const Markers = () => {
   const defaultPositionSet = useRef(false);
   useEffect(() => {
     if (cities.length && !defaultPositionSet.current) {
-      map.flyTo([cities[0].latitude, cities[0].longitude], 10);
+      map.flyTo([cities[0].latitude, cities[0].longitude], 10, { duration: 1 });
 
       defaultPositionSet.current = true;
     }
