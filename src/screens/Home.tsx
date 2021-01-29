@@ -11,6 +11,10 @@ const HomeWrapper = styled(Row)`
   ${media.desktop} {
     margin-top: 50px;
   }
+
+  ${media.tablet} {
+    margin-top: 50px;
+  }
 `;
 
 const Home = () => {
@@ -18,7 +22,7 @@ const Home = () => {
     <HomeWrapper>
       <Column
         columnCountDesktop={4}
-        columnCountTablet={12}
+        columnCountTablet={3}
         columnCountPhone={12}
         hideInPhone
       >
@@ -26,7 +30,7 @@ const Home = () => {
       </Column>
       <Column
         columnCountDesktop={8}
-        columnCountTablet={12}
+        columnCountTablet={3}
         columnCountPhone={12}
       >
         <Map />
